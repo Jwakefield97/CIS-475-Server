@@ -1,0 +1,5 @@
+/* Used to prevent content from being placed under the nav bar */
+body { 
+    padding-top: 75px;
+    min-height: 100vh !important; 
+}

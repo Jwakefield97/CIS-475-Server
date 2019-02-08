@@ -39,6 +39,12 @@ h1 {
     footer {
         position: relative !important;
     }
+    #carouselExampleIndicators {
+        margin-bottom: 15vh !important;
+    }
+    #formWrapper {
+        margin-bottom: 26vh !important;
+    }
 }
 
 /* Medium devices (tablets, 768px and up) */

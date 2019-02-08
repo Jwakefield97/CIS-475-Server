@@ -1,10 +1,38 @@
 /* Used to prevent content from being placed under the nav bar */
 body { 
     padding-top: 75px;
-    min-height: 100vh !important; 
+    min-height: 100% !important; 
 }
 
-.carousel-inner{
+.carousel-inner {
     width:100%;
-    max-height: 65vh !important;
+    max-height: 73vh !important;
 }
+.carousel-item img {
+    height: 73vh !important;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Small devices (anything below 600 px in width) */
+@media (max-width: 600px) { 
+    .carousel-item img {
+        height: 50vh !important;
+    }
+    .carousel-inner {
+        width:100%;
+        max-height: 50vh !important;
+    }
+ }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {  }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { }
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { }

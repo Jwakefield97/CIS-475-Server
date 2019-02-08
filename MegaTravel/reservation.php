@@ -1,8 +1,13 @@
 <?php include 'header.php'; ?>
 
 <div class="container-fluid">
-    <div class="col-12">
-        this is the reservation page.
+    <div class="col-6 mx-auto">
+    <div class="card">
+        <h2 class="card-header p-2 underline">Make a Reservation</h2>
+        <div class="card-body">
+            
+        </div>
+    </div>
     </div>
 </div>
 

@@ -6,7 +6,7 @@ var resizeHeaderCol = function(){
         $("#aboutHeader").removeClass("col-6");
         $("#aboutHeader").addClass("col-2");
     }
-}
+};
 
 $(document).ready(function() {
     $("#navbarNavAltMarkup .navbar-nav .about").addClass("active");

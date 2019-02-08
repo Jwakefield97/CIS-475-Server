@@ -16,6 +16,9 @@ footer {
     bottom: 0;
     width: 100%;
 }
+.underline {
+    text-decoration: underline !important;
+}
 
 /* Small devices (anything below 600 px in width) */
 @media (max-width: 600px) { 

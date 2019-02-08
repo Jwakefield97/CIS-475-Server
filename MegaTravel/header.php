@@ -22,9 +22,9 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav">
-                            <a class="nav-item nav-link active" href="/MegaTravel/home.php">Home <span class="sr-only">(current)</span></a>
-                            <a class="nav-item nav-link" href="/MegaTravel/reservation.php">Reservations</a>
-                            <a class="nav-item nav-link" href="/MegaTravel/about.php">About</a>
+                                <a class="nav-item nav-link home active" href="/MegaTravel/home.php">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-item nav-link reservations" href="/MegaTravel/reservation.php">Reservations</a>
+                                <a class="nav-item nav-link about" href="/MegaTravel/about.php">About</a>
                             </div>
                         </div>
                     </nav>

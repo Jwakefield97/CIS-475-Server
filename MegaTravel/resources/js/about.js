@@ -1,4 +1,3 @@
-
 var resizeHeaderCol = function(){
     if($(window).width() <= 600) {
         $("#aboutHeader").removeClass("col-2");
@@ -10,6 +9,10 @@ var resizeHeaderCol = function(){
 }
 
 $(document).ready(function() {
+    $("#navbarNavAltMarkup .navbar-nav .about").addClass("active");
+    $("#navbarNavAltMarkup .navbar-nav .reservations").removeClass("active");
+    $("#navbarNavAltMarkup .navbar-nav .home").removeClass("active");
+
     resizeHeaderCol();
     $(window).resize(function() {
         resizeHeaderCol();

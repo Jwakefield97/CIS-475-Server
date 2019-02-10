@@ -1,4 +1,4 @@
-<?php include 'header.php'; ?>
+<?php include 'partials/header.php'; ?>
 
 <div class="container-fluid">
     <div id="formWrapper" class="col-8 mx-auto">
@@ -28,4 +28,4 @@
 </div>
 
 <script src="/MegaTravel/resources/js/reservation.js"></script>
-<?php include 'footer.php'; ?>
+<?php include 'partials/footer.php'; ?>

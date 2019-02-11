@@ -16,4 +16,11 @@ $(document).ready(function() {
     $(window).resize(function() {
         resizeFormCol();
     });
+
+    $('#fromDate').datepicker({
+        uiLibrary: 'bootstrap4'
+    });
+    $('#toDate').datepicker({
+        uiLibrary: 'bootstrap4'
+    });
 });

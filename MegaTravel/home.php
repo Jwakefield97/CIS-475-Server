@@ -1,4 +1,4 @@
-<?php include 'header.php'; ?>
+<?php include 'partials/header.php'; ?>
 
 <div class="container-fluid">
     <div class="row">
@@ -46,4 +46,4 @@
 </div>
 <script src="/MegaTravel/resources/js/home.js"></script>
 
-<?php include 'footer.php'; ?>
+<?php include 'partials/footer.php'; ?>

@@ -3,7 +3,6 @@ body {
     padding-top: 75px;
     min-height: 100% !important; 
 }
-
 .carousel-inner {
     width:100%;
     max-height: 73vh !important;
@@ -19,11 +18,9 @@ footer {
 .underline {
     text-decoration: underline !important;
 }
-
 h1 { 
     white-space: nowrap; 
 }
-
 /* Small devices (anything below 600 px in width) */
 @media (max-width: 600px) { 
     .carousel-item img {

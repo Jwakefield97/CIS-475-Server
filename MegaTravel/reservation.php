@@ -9,11 +9,11 @@
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
                             <label for="firstname">First name</label>
-                            <input name="firstname" type="text" class="form-control" id="firstname" placeholder="First name" value="firstname" required>
+                            <input name="firstname" type="text" class="form-control" id="firstname" placeholder="First name" required>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="lastname">Last name</label>
-                            <input name="lastname" type="text" class="form-control" id="lastname" placeholder="Last name" value="lastname" required>
+                            <input name="lastname" type="text" class="form-control" id="lastname" placeholder="Last name" required>
                         </div>
                     </div>
                     <div class="form-row">

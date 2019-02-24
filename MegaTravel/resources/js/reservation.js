@@ -24,3 +24,17 @@ $(document).ready(function() {
         uiLibrary: 'bootstrap4'
     });
 });
+
+app.controller("reservationController", function($scope){
+    //$scope.currentCity = "Brisbane, Australia";
+    $scope.cities = {
+        "Brisbane, Australia": ["City Tours", "Sports", "Cycling", "Museums", "Boating"],
+        "Vancouver, Canada": ["Museums", "Sailing", "Beach", "Hiking", "Boating"],
+        "New York City, United States": ["Museums", "Theatre", "Parks and Recreation", "City Tours"],
+        "Berlin, Germany": ["City Tours", "Museums", "Cycling"],
+        "Cancun, Mexico": ["Parks and Recreation", "Beaches", "Boating", "Snorkeling"]
+    };
+    $scope.reset = function(){ //function to reset the form
+        $scope.currentCity = "";
+    };
+});

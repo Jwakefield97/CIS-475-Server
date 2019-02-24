@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="app" ng-cloak>
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -12,6 +12,15 @@
         <link href="https://unpkg.com/gijgo@1.9.11/css/gijgo.min.css" rel="stylesheet" type="text/css" />
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/gijgo@1.9.11/js/gijgo.min.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+        <style>
+            [ng\:cloak], [ng-cloak], .ng-cloak {
+                display: none;
+            }
+        </style>
+        <script>
+            var app = angular.module("app",[]); //define the angular app across the website 
+        </script>
     </head>
     <body>
         <div class="container-fluid">

@@ -5,44 +5,27 @@
         <div class="card">
             <h2 class="card-header p-2 underline">Make a Reservation</h2>
             <div class="card-body">
-                <form action="/MegaTravel/forms/reservation_form.php" method="post">
+                <form ng-controller="reservationController" action="/MegaTravel/forms/reservation_form.php" method="post" >
 
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
-                            <label for="firstname">First name</label>
-                            <input name="firstname" type="text" class="form-control" id="firstname" placeholder="First name" value="firstname" required>
+                            <label for="destination">Destination: </label>
+                            <select class="form-control" id="destination" name="destination" ng-model="currentCity">
+                                <option ng-repeat="(key, value) in cities" value="{{key}}">{{key}}</option>
+                            </select>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="lastname">Last name</label>
-                            <input name="lastname" type="text" class="form-control" id="lastname" placeholder="Last name" value="lastname" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="col-md-4 mb-3">
-                            <label for="fromDate">From Date</label>
-                            <input name="fromDate" class="form-control" id="fromDate" required>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="toDate">To Date</label>
-                            <input name="toDate" class="form-control" id="toDate" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="col-md-4 mb-3">
-                            <label for="departureCity">Departure City</label>
-                            <input name="departureCity" type="text" class="form-control" placeholder="Where are you leaving from?" required>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="destinationCity">Destination City</label>
-                            <input name="destinationCity" type="text" class="form-control" placeholder="Where are you going?" required>
+                            <label for="activity">Activity: </label>
+                            <select class="form-control" id="activity" name="activity">
+                                <option ng-repeat="activity in cities[currentCity]" value="{{activity}}">{{activity}}</option>
+                            </select>
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="col-md-12">
-                            <button type="submit" class="btn btn-primary float-right">Submit</button>
+                            <button type="submit" class="btn btn-primary float-right ml-2">Submit</button>
+                            <button type="button" class="btn btn-danger float-right" ng-click="reset()">Reset</button>
                         </div>
                     </div>
                 </form>

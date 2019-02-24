@@ -26,7 +26,6 @@ $(document).ready(function() {
 });
 
 app.controller("reservationController", function($scope){
-    //$scope.currentCity = "Brisbane, Australia";
     $scope.cities = {
         "Brisbane, Australia": ["City Tours", "Sports", "Cycling", "Museums", "Boating"],
         "Vancouver, Canada": ["Museums", "Sailing", "Beach", "Hiking", "Boating"],

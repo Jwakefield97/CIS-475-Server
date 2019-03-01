@@ -35,5 +35,14 @@ app.controller("reservationController", function($scope){
     };
     $scope.reset = function(){ //function to reset the form
         $scope.currentCity = "";
+        $scope.adultNum = 0;
+        $scope.childrenNum = 0;
+        $scope.fromDate = "";
+        $scope.toDate = "";
+        $scope.email = "";
+        $scope.phoneNumber = "";
+    };
+    $scope.submit = function () {
+        return false;
     };
 });

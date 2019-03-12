@@ -8,6 +8,12 @@
                 <form ng-controller="reservationController" action="/MegaTravel/forms/reservation_form.php" method="post" >
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
+                            <label for="adultNum">Full name:</label>
+                            <input placeholder="John Doe" ng-model="fullName" name="fullName" class="form-control" id="fullName" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-4 mb-3">
                             <label for="adultNum">Number of Adults:</label>
                             <input value="0" ng-model="adultNum" type="number" name="adultNum" class="form-control" id="adultNum" required>
                         </div>
@@ -29,7 +35,7 @@
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
                             <label for="destination">Destination: </label>
-                            <select class="form-control" id="destination" name="destination" ng-model="currentCity">
+                            <select class="form-control" id="destination" name="destination" ng-model="currentCity" required>
                                 <option ng-repeat="(key, value) in cities" value="{{key}}">{{key}}</option>
                             </select>
                         </div>

@@ -41,6 +41,7 @@ app.controller("reservationController", function($scope){
         $scope.toDate = "";
         $scope.email = "";
         $scope.phoneNumber = "";
+        $scope.fullName = "";
     };
     $scope.submit = function () {
         return false;

@@ -9,9 +9,11 @@
         <div class="col-8 mx-auto">
             <div class="card">
                 <div class="card-body">
-                    <P>
-                        <?php echo $errorBody ?>
-                    </p>
+                    <?php 
+                        if(strlen($errorBody) > 0){
+                            echo "<pre>" . $errorBody . "</pre>";
+                        }                        
+                    ?>
                     <a href="<?php echo $redirectLink ?>">Return to previous page.</a>
                 </div>
             </div>

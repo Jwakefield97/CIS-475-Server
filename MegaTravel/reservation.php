@@ -53,7 +53,7 @@
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="phoneNumber">Phone number:</label>
-                            <input ng-model="phoneNumber" type="tel" placeholder="Optional - (111)-111-1111" name="phoneNumber" class="form-control" id="phoneNumber">
+                            <input ng-model="phoneNumber" type="tel" placeholder="Optional - 1-111-111-1111" name="phoneNumber" class="form-control" id="phoneNumber">
                         </div>
                     </div>
 

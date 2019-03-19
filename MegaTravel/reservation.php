@@ -52,8 +52,8 @@
                             <input ng-model="email" placeholder="example@gmail.com" type="email" name="email" class="form-control" id="email" required>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="phoneNumber">Phone number:</label>
-                            <input ng-model="phoneNumber" type="tel" placeholder="Optional - 1-111-111-1111" name="phoneNumber" class="form-control" id="phoneNumber">
+                            <label for="phoneNumber">Phone number (format: x-xxx-xxx-xxxx):</label>
+                            <input ng-model="phoneNumber" type="tel" placeholder="Optional - 1-417-883-5555" name="phoneNumber" class="form-control" id="phoneNumber" pattern="^\d{1}-\d{3}-\d{3}-\d{4}$">
                         </div>
                     </div>
 

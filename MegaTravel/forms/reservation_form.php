@@ -26,7 +26,7 @@ if(empty($adultNum) || !is_numeric($adultNum) || $adultNum <= 0){
     $error = true;
     $errorBody .= "Error with the number of adults. \n";
 }
-if(empty($childrenNum) || !is_numeric($childrenNum) || $childrenNum < 0){
+if(!isset($childrenNum) || !is_numeric($childrenNum) || $childrenNum < 0){
     $error = true;
     $errorBody .= "Error with the number of children. \n";
 }

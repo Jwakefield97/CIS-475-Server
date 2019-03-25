@@ -39,6 +39,8 @@
                                 <a class="nav-item nav-link home active" href="/MegaTravel/home.php">Home <span class="sr-only">(current)</span></a>
                                 <a class="nav-item nav-link reservations" href="/MegaTravel/reservation.php">Reservations</a>
                                 <a class="nav-item nav-link about" href="/MegaTravel/about.php">About</a>
+                                <a class="nav-item nav-link admin" href="/MegaTravel/admin.php">Admin</a>
+
                             </div>
                         </div>
                     </nav>

@@ -10,7 +10,7 @@ $cities = array (
 );
 
 $db_url = "localhost";
-$db_username = "root";
+$db_username = "";
 $db_password = "";
 
 $adultNum = $_POST["adultNum"];
@@ -74,15 +74,9 @@ if($error){
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }else{ //no connection error insert info
-        if(!isset($childrenNum)){
-            $childrenNum = 0;
-        }
-        $fromDate = date("Y-m-d", strtotime($fromDate));
-        $toDate = date("Y-m-d", strtotime($toDate));
-        
         $stmt = $conn->prepare("INSERT INTO megatravel.reservation (client_name,client_phone_number,client_email,number_adults,number_children,destination,from_date,to_date,activity) VALUES (?,?,?,?,?,?,?,?,?)");
         $stmt->bind_param("sssiissss", $fullName, $phoneNumber, $email, $adultNum, $childrenNum, $destination, $fromDate, $toDate, $activity);
-        
+
         if ($stmt->execute() === TRUE) { //if the reservation was save successfully
             include "../confirmation.php";
         } else {

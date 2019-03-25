@@ -9,6 +9,10 @@ $cities = array (
     "Cancun, Mexico" => array("Parks and Recreation", "Beaches", "Boating", "Snorkeling")
 );
 
+$db_url = "localhost";
+$db_username = "";
+$db_password = "";
+
 $adultNum = $_POST["adultNum"];
 $childrenNum = $_POST["childrenNum"];
 $fromDate = $_POST["fromDate"];
@@ -62,7 +66,27 @@ if($error){
     $redirectLink = "/MegaTravel/reservation.php";
     include "../error.php";
 }else{
-    include "../confirmation.php";
+
+    // Create connection
+    $conn = new mysqli($db_url, $db_username, $db_password);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }else{ //no connection error insert info
+        $stmt = $conn->prepare("INSERT INTO megatravel.reservation (client_name,client_phone_number,client_email,number_adults,number_children,destination,from_date,to_date,activity) VALUES (?,?,?,?,?,?,?,?,?)");
+        $stmt->bind_param("sssiissss", $fullName, $phoneNumber, $email, $adultNum, $childrenNum, $destination, $fromDate, $toDate, $activity);
+
+        if ($stmt->execute() === TRUE) { //if the reservation was save successfully
+            include "../confirmation.php";
+        } else {
+            $errorTitle = "Error with the Database";
+            $errorBody = "an error occured while processing the reservation form. please see the reasons: \n" . $stmt->error;
+            $redirectLink = "/MegaTravel/reservation.php";
+            include "../error.php";
+        }
+    } 
+    $conn->close();
 }
 
 ?>

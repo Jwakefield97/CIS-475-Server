@@ -18,7 +18,6 @@ $(document).ready(function() {
     $(window).resize(function() {
         resizeFormCol();
     });
-   
 });
 
 app.controller("adminController", function($scope){

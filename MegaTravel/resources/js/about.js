@@ -12,6 +12,7 @@ $(document).ready(function() {
     $("#navbarNavAltMarkup .navbar-nav .about").addClass("active");
     $("#navbarNavAltMarkup .navbar-nav .reservations").removeClass("active");
     $("#navbarNavAltMarkup .navbar-nav .home").removeClass("active");
+    $("#navbarNavAltMarkup .navbar-nav .admin").removeClass("active");
 
     resizeHeaderCol();
     $(window).resize(function() {

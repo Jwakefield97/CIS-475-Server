@@ -21,7 +21,7 @@
 ?>
 
 <div class="row mt-3">
-    <div class="col-4 mx-auto">
+    <div id="colWrapper" class="col-4 mx-auto">
         <ul class="nav nav-tabs mb-1" id="tabpanel" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Login</a>

@@ -3,7 +3,7 @@
     include 'partials/header.php'; 
 ?>
 <div class="row mt-3">
-    <div class="col-6 mx-auto">
+    <div id="colWrapper" class="col-6 mx-auto">
         <?php
             include 'forms/utils.php'; 
             $leaderBoard = getLeaderBoard();
@@ -24,5 +24,5 @@
     </div>
 </div>
 
-<script src="/FinalProject/resources/js/master.js"></script>
+<script src="/FinalProject/resources/js/learderboard.js"></script>
 <?php include 'partials/footer.php'; ?>

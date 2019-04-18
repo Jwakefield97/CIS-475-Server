@@ -7,9 +7,9 @@ CREATE TABLE finalproject.user (
 );
 
 CREATE TABLE finalproject.leaderboard (
-	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	username VARCHAR(200),
 	score VARCHAR(200) NOT NULL,
 	date_scored DATETIME NOT NULL,
+	PRIMARY KEY (username),
 	FOREIGN KEY (username) REFERENCES finalproject.user(username)
 );

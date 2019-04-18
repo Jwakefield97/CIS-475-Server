@@ -1,7 +1,7 @@
 <?php 
 	session_start();
-	unset($_SESSION["logged_in"]);
+	unset($_SESSION["user"]);
 	session_destroy();
-	header("Location: game.php");
+	header("Location: ../login_register.php");
     exit();
 ?>

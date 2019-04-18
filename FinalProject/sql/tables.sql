@@ -8,7 +8,7 @@ CREATE TABLE finalproject.user (
 
 CREATE TABLE finalproject.leaderboard (
 	username VARCHAR(200),
-	score VARCHAR(200) NOT NULL,
+	score int NOT NULL,
 	date_scored DATETIME NOT NULL,
 	PRIMARY KEY (username),
 	FOREIGN KEY (username) REFERENCES finalproject.user(username)

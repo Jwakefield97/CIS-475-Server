@@ -38,7 +38,7 @@
 	}
 
 	//check if the username and password are valid
-	function isUserValid($username, $password) {
+	function isValidUser($username, $password) {
 		$password = hashPassword($password);
 		$conn = getConnection();
 		$res = $conn->query("SELECT * FROM finalproject.user WHERE username = '" . $conn->real_escape_string($username) . "' AND password = '" .  $password . "'");
@@ -50,10 +50,17 @@
 	function insertLeaderBoard($username, $score) {
 		$conn = getConnection();
 		$stmt = $conn->prepare("INSERT INTO finalproject.leaderboard (username,score,date_scored) VALUES (?, ?, CURRENT_TIMESTAMP) ON DUPLICATE KEY UPDATE score=VALUES(score), date_scored=VALUES(date_scored)");
-		$stmt->bind_param("ss", $username, $password);
+		$stmt->bind_param("si", $username, $score);
 		$stmtErr = $stmt->execute(); 
 		$conn->close();
 		return $stmtErr;
+	}
+
+	function getLeaderBoard() {
+		$conn = getConnection();
+		$res = $conn->query("SELECT * FROM finalproject.leaderboard ORDER BY score DESC");
+		$conn->close();
+		return $res;
 	}
 
 	//has a given password
@@ -63,6 +70,10 @@
 			'cost' => 12 // the default cost is 10
 		];
 		return password_hash($password, PASSWORD_DEFAULT, $options);
+	}
+
+	function isValidUsernameAndPassword($username,$password) {
+		return !empty($username) && !empty($password);
 	}
 
 

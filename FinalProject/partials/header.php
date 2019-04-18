@@ -49,6 +49,7 @@
                                 <a class="nav-item nav-link <?php echo getActive("leaderboard",$current_page); ?>" href="/FinalProject/leaderboard.php">Leaderboard</a>
                                 <a class="nav-item nav-link <?php echo getActive("about",$current_page); ?>" href="/FinalProject/about.php">About</a>
                                 <a class="nav-item nav-link <?php echo getActive("login",$current_page); ?>" href="/FinalProject/login_register.php">Login/Register</a>
+                                <a class="nav-item nav-link" href="/FinalProject/forms/logout.php">Logout</a>
                             </div>
                         </div>
                     </nav>

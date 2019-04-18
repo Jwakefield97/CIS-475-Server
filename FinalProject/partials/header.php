@@ -33,7 +33,7 @@
         </script>
     </head>
     <body>
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
                 <div class="col-12">
                     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -48,6 +48,7 @@
                                 <a class="nav-item nav-link <?php echo getActive("game",$current_page); ?>" href="/FinalProject/game.php">Game</a>
                                 <a class="nav-item nav-link <?php echo getActive("leaderboard",$current_page); ?>" href="/FinalProject/leaderboard.php">Leaderboard</a>
                                 <a class="nav-item nav-link <?php echo getActive("about",$current_page); ?>" href="/FinalProject/about.php">About</a>
+                                <a class="nav-item nav-link <?php echo getActive("login",$current_page); ?>" href="/FinalProject/login_register.php">Login/Register</a>
                             </div>
                         </div>
                     </nav>

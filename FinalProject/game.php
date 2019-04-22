@@ -10,8 +10,27 @@
 ?>
 
 <div class="container mt-3">
+    <div class="row mb-2">
+        <div class="col-1">
+            <button type="button" class="btn btn-success" id="startGame">Start</button>
+        </div>
+        <div class="col-1">
+            <button type="button" class="btn btn-primary" id="stopGame">Stop</button>
+        </div>
+        <div class="col-1">
+            <button type="button" class="btn btn-danger" id="resetGame">Reset</button>
+        </div>
+        <div class="col-2">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="scoreAddon">Score: </span>
+                </div>
+                <input id="scoreInput" type="text" class="form-control" placeholder="0" aria-label="score" aria-describedby="scoreAddon" disabled>
+            </div>
+        </div>
+    </div>
     <div class="row">
-        <div class="col-12" >
+        <div class="col-12">
             <div id="gameCanvas"></div>
         </div>
     </div>

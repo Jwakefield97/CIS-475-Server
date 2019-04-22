@@ -25,14 +25,23 @@ function draw() {
 
 $(document).ready(function(){
     canStart = true;
-    gameHeight = 100;
+    gameHeight = $(window).height()/1.5;
     gameWidth = $("#navWrapper").width();
     setup();
     $(window).resize(function() {
-        gameHeight = 100;
+        gameHeight = $(window).height()/1.5;
         gameWidth = $("#navWrapper").width();
         resizeCanvas(gameWidth, gameHeight);
         background(255, 0, 200);
+
+    });
+    $("#startGame").on("click",function(){
+
+    });
+    $("#stopGame").on("click",function(){
+
+    });
+    $("#resetGame").on("click",function(){
 
     });
 });

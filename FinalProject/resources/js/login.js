@@ -15,8 +15,8 @@ var resizeFormCol = function(){
         $("#colWrapper").removeClass("col-4");
         $("#colWrapper").addClass("col-10");
     } else {
-        $("#colWrapper").removeClass("col-4");
-        $("#colWrapper").addClass("col-10");
+        $("#colWrapper").removeClass("col-10");
+        $("#colWrapper").addClass("col-4");
     }
 };
 

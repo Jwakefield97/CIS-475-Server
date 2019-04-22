@@ -35,7 +35,7 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12" id="navWrapper">
                     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
                         <a class="navbar-brand" href="/FinalProject/game.php">
                             FinalProject

@@ -9,10 +9,10 @@
     }
 ?>
 
-<div class="container">
+<div class="container mt-3">
     <div class="row">
-        <div class="col-12" id="gameCanvas">
-
+        <div class="col-12" >
+            <div id="gameCanvas"></div>
         </div>
     </div>
 </div>

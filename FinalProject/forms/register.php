@@ -1,5 +1,6 @@
 <?php 
 	include "utils.php";
+	session_start();
 	$username = $_POST["username"];
 	$password = $_POST["username"];
 	if (isValidUsernameAndPassword($username, $password)) {

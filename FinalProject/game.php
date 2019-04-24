@@ -15,9 +15,6 @@
             <button type="button" class="btn btn-success" id="startGame">Start</button>
         </div>
         <div class="col-1">
-            <button type="button" class="btn btn-primary" id="stopGame">Stop</button>
-        </div>
-        <div class="col-1">
             <button type="button" class="btn btn-danger" id="resetGame">Reset</button>
         </div>
         <div class="col-2">
@@ -28,6 +25,9 @@
                 <input id="scoreInput" type="text" class="form-control" placeholder="0" aria-label="score" aria-describedby="scoreAddon" disabled>
             </div>
         </div>
+        <div class="col-8">
+            <h3 class="float-right">Player: <b><?php echo $_SESSION["user"]; ?><b></h3>
+        </div>
     </div>
     <div class="row">
         <div class="col-12">
@@ -35,7 +35,9 @@
         </div>
     </div>
 </div>
-
+<script>
+    const USER = "<?php echo $_SESSION["user"]; ?>";
+</script>
 <script src="/FinalProject/resources/js/master.js"></script>
 <script src="/FinalProject/resources/js/game.js"></script>
 <?php include 'partials/footer.php'; ?>

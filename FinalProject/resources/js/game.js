@@ -37,28 +37,21 @@ function draw() {
         background(0);
         fill(255);
         checkControls();
-        translate(userX, userY);
 
-        var rotateAngle;
         switch(userDir) { //rotate based on direction
             case KEYS.W: 
-                rotateAngle = 0;
+                triangle(userX-20, userY, userX, userY-50, userX+20, userY);
                 break;
             case KEYS.A: 
-                rotateAngle = 270;
+                triangle(userX-50, userY, userX, userY-20, userX, userY+20);
                 break;
             case KEYS.S: 
-                rotateAngle = 180;
+                triangle(userX-20, userY, userX, userY+50, userX+20, userY);
                 break;
             case KEYS.D: 
-                rotateAngle = 90;
+                triangle(userX+50, userY, userX, userY-20, userX, userY+20);
                 break;
         }
-
-        angleMode(DEGREES);
-        rotate(rotateAngle);
-        triangle(-playerSize, playerSize, playerSize, playerSize, 0, -playerSize);
-        rotate(-rotateAngle); //rotate back before updating bullets
         updateBullets();
         drawBullets();
     }
@@ -66,9 +59,28 @@ function draw() {
 
 //update the bullets on the screen
 function updateBullets() {
+    var validBullets = [];
     bullets.forEach(function(bullet) {
-        
+        switch(bullet.dir) { //rotate based on direction
+            case KEYS.W: 
+                bullet.y -= bulletSpeed;
+                break;
+            case KEYS.A: 
+                bullet.x -= bulletSpeed;
+                break;
+            case KEYS.S: 
+                bullet.y += bulletSpeed;
+                break;
+            case KEYS.D: 
+                bullet.x += bulletSpeed;
+                break;
+        }
+
+        if(!(bullet.x <= 0) && !(bullet.x >= gameWidth) && !(bullet.y <= 0) && !(bullet.y >= gameHeight)) { //collision with left barrier
+            validBullets.push(bullet);
+        }
     });
+    bullets = validBullets;
 }
 
 //draw the bullets on the screen
@@ -76,8 +88,11 @@ function drawBullets() {
     strokeWeight(4);
     stroke(255);
     bullets.forEach(function(bullet) {
-        translate(bullet.x, bullet.y);
-        line(-bulletSize,0,bulletSize,bulletSize);
+        if(bullet.dir === KEYS.W || bullet.dir === KEYS.S) { //draw vertical line
+            line(bullet.x,bullet.y,bullet.x,bullet.y+bulletSize);
+        } else if (bullet.dir === KEYS.A || bullet.dir === KEYS.D) { //draw horizontal line
+            line(bullet.x,bullet.y,bullet.x+bulletSize,bullet.y);
+        }
     });
 }
 

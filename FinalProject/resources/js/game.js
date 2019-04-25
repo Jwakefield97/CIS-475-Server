@@ -1,32 +1,4 @@
-/*
-    Bouncing ball example: 
-    function Ball(x,y,r) {
-        this.x = x;
-        this.y = y;
-        this.r = r;
-        this.d = 2*r;
-        this.xVelocity = -4;
-        this.yVelocity = 3;
 
-        this.show = function() {
-            color(255);
-            ellipse(this.x, this.y, this.d, this.d);
-        }
-        this.move = function() {
-            this.x += this.xVelocity;
-            this.y += this.yVelocity;
-            this.bounce();
-        }
-        this.bounce = function() {
-            if(this.x - this.r <= 0 || this.x + this.r >= width) {
-                this.xVelocity *= -1;
-            }
-            if(this.y - this.r <= 0 || this.y + this.r >= height) {
-                this.yVelocity *= -1;
-            }
-        }
-    }
-*/
 var canvas,
     canStart = false,
     gameHeight,
@@ -38,8 +10,10 @@ var canvas,
         W: 87,
         A: 65,
         S: 83,
-        D: 68
+        D: 68,
+        SPACE: 32
     },
+    userDir = KEYS.W, //user direction
     playerSize = 20,
     bulletSpeed = 10,
     bullets = [],
@@ -65,9 +39,26 @@ function draw() {
         checkControls();
         translate(userX, userY);
 
-        var radians = atan2(mouseY-userY, mouseX-userX);
-        rotate(radians + HALF_PI);
+        var rotateAngle;
+        switch(userDir) { //rotate based on direction
+            case KEYS.W: 
+                rotateAngle = 0;
+                break;
+            case KEYS.A: 
+                rotateAngle = 270;
+                break;
+            case KEYS.S: 
+                rotateAngle = 180;
+                break;
+            case KEYS.D: 
+                rotateAngle = 90;
+                break;
+        }
+
+        angleMode(DEGREES);
+        rotate(rotateAngle);
         triangle(-playerSize, playerSize, playerSize, playerSize, 0, -playerSize);
+        rotate(-rotateAngle); //rotate back before updating bullets
         updateBullets();
         drawBullets();
     }
@@ -85,8 +76,7 @@ function drawBullets() {
     strokeWeight(4);
     stroke(255);
     bullets.forEach(function(bullet) {
-        translate(bullet.x,bullet.y);
-        rotate(bullet.angle);
+        translate(bullet.x, bullet.y);
         line(-bulletSize,0,bulletSize,bulletSize);
     });
 }
@@ -94,11 +84,10 @@ function drawBullets() {
 //add bullets to the bullet array when left click is pressed
 function shootBullet() {
     if(canShoot) {
-        var radians = atan2(mouseY-userY, mouseX-userX);
         bullets.push({
             x: userX, 
             y: userY,
-            angle: radians
+            dir: userDir
         });
         canShoot = false;
         setTimeout(function(){
@@ -109,20 +98,24 @@ function shootBullet() {
 
 //check controls that are pressed
 function checkControls() {
-    if(mouseIsPressed && mouseButton === LEFT) {
+    if(keyIsDown(KEYS.SPACE)) {
         shootBullet();
     }
     if(keyIsDown(KEYS.W)){ //w   i.e. up 
         userY -= 3;
+        userDir = KEYS.W;
     } 
     if(keyIsDown(KEYS.A)){//a  i.e. left
         userX -= 3;
+        userDir = KEYS.A;
     } 
     if(keyIsDown(KEYS.S)){//s   i.e. down
         userY += 3;
+        userDir = KEYS.S;
     }  
     if(keyIsDown(KEYS.D)){//d  i.e. right 
         userX += 3;
+        userDir = KEYS.D;
     }
     checkBoundaries();
 }

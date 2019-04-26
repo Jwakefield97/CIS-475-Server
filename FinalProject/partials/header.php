@@ -23,6 +23,7 @@
         <script src="https://unpkg.com/gijgo@1.9.11/js/gijgo.min.js" type="text/javascript"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script>
+        <script src="/FinalProject/resources/js/p5.collide2d.min.js"></script>
         <style>
             [ng\:cloak], [ng-cloak], .ng-cloak {
                 display: none;

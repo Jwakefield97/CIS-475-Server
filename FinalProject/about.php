@@ -32,6 +32,18 @@
                 </div>
             </div>
         </div>
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <h2 class="card-header p-2 underline">Sources</h2>
+                    <div class="card-body">
+                        <p class="text-center about-us-text">
+                            The game was built using the library <a href="https://p5js.org/">p5js</a> and the collision library <a href="https://github.com/bmoren/p5.collide2D">p5collide</a>. All other game assets are original. The page is styled using <a href="https://getbootstrap.com/docs/4.0/getting-started/introduction/">Bootstrap 4</a> with <a href="https://jquery.com/">jQuery</a> and <a href="https://angular.io/">Angular</a>. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 <script src="/FinalProject/resources/js/master.js"></script>

@@ -15,6 +15,11 @@
 ?>
 
 <div class="container mt-3">
+    <div class="row mb-4">
+        <div class="col-12">
+            <a href="/FinalProject/about.php">Story, Game Controls, and Sources</a>
+        </div>
+    </div>
     <div class="row mb-2">
         <div class="col-2">
             <button type="button" class="btn btn-success" onclick="this.blur();" id="startGame">Start</button>

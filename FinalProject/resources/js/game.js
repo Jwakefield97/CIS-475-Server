@@ -3,7 +3,7 @@ var canvas,
     canStart = false,
     gameHeight,
     gameWidth,
-    isPaused = false,
+    isPaused = true,
     userX,
     userY,
     isAlive = true,
@@ -21,7 +21,7 @@ var canvas,
     bulletSize = 10,
     canShoot = true,
     enemies = [],
-    enemySpawnTime = 1000,
+    enemySpawnTime = 3000,
     enemySpeed = 3,
     largeEnemySize = 50,
     smallEnemySize = 20,
@@ -72,9 +72,8 @@ function draw() {
         textSize(32);
         fill(255, 0, 0);
         text('YOU DIED!', gameWidth/2, gameHeight/2);
-        console.log("game ended");
     }
-    $("#scoreInput").val(score); //update score
+    $("#scoreInput").html(score); //update score
 }
 
 //update enemy positions
@@ -146,6 +145,7 @@ function updateEnemies() {
         collision = collideCirclePoly(enemy.x,enemy.y,enemy.size,userPoly);
         if(collision) {
             isAlive = false;
+            updateScoreOnServer();
         }
     });
     enemies = validEnemies;
@@ -217,7 +217,6 @@ function updateBullets() {
             if(collision) {
                 enemy.isDead = true;
                 score++;
-                updateScoreOnServer();
                 return;
             }
         });
@@ -310,7 +309,22 @@ function resetGame() {
 
 //send the new high score to server
 function updateScoreOnServer() {
-
+    if(score > HEIGH_SCORE) {
+        $.ajax({
+            url: '/FinalProject/forms/enter_score.php',
+            dataType: 'text',
+            type: 'post',
+            contentType: 'application/x-www-form-urlencoded',
+            data: {score: score},
+            success: function( data, textStatus, jQxhr ){
+                HEIGH_SCORE = score;
+                $("#highScore").html(score);
+            },
+            error: function( jqXhr, textStatus, errorThrown ){
+                alert("There was an error updating your score");
+            }
+        });
+    }
 }
 
 $(document).ready(function(){

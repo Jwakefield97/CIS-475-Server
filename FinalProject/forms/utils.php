@@ -18,6 +18,14 @@
         }
 	}
 
+	//get the score for a single user
+	function getUserScore($username) {
+		$conn = getConnection();
+		$res = $conn->query("SELECT score FROM finalproject.leaderboard WHERE username='" . $conn->real_escape_string($username) . "'");
+		$conn->close();
+		return $res;
+	}
+
 	//check if username exists
 	function checkUsername($username) {
 		$conn = getConnection();

@@ -23,10 +23,10 @@
             <button type="button" class="btn btn-danger" onclick="this.blur();" id="resetGame">Reset</button>
         </div>
         <div class="col-2">
-            <h5>Score:</h5><b><span id="scoreInput">0</span></b>
+            <h5>Score: <b><span id="scoreInput">0</span></b></h5>
         </div>
         <div class="col-2">
-            <h5>High Score:</h5><b><span id="highScore"><?php echo $userHeighScore; ?></span></b>
+            <h5>High Score: <b><span id="highScore"><?php echo $userHeighScore; ?></span></b></h5>
         </div>
         <div class="col-4">
             <h5 class="float-right">Player: <b><?php echo $_SESSION["user"]; ?><b></h5>

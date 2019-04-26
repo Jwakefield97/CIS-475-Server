@@ -116,36 +116,37 @@ function updateEnemies() {
             validEnemies.push(enemy);
         }
         ellipse(enemy.x,enemy.y,enemy.size,enemy.size);
-
-        var userPoly = [],
-            collision = false;
-        //check for user collision with enemy
-        switch(userDir) { //rotate based on direction
-            case KEYS.W: 
-                userPoly[0] = createVector(userX-20,userY);
-                userPoly[1] = createVector(userX,userY-50);
-                userPoly[2] = createVector(userX+20,userY);
-                break;
-            case KEYS.A: 
-                userPoly[0] = createVector(userX-50,userY);
-                userPoly[1] = createVector(userX,userY-20);
-                userPoly[2] = createVector(userX,userY+20);
-                break;
-            case KEYS.S: 
-                userPoly[0] = createVector(userX-20,userY);
-                userPoly[1] = createVector(userX,userY+50);
-                userPoly[2] = createVector(userX+20,userY);
-                break;
-            case KEYS.D: 
-                userPoly[0] = createVector(userX+50, userY);
-                userPoly[1] = createVector(userX, userY-20);
-                userPoly[2] = createVector(userX, userY+20);
-                break;
-        }
-        collision = collideCirclePoly(enemy.x,enemy.y,enemy.size,userPoly);
-        if(collision) {
-            isAlive = false;
-            updateScoreOnServer();
+        if(!enemy.isDead) {
+            var userPoly = [],
+                collision = false;
+            //check for user collision with enemy
+            switch(userDir) { //rotate based on direction
+                case KEYS.W: 
+                    userPoly[0] = createVector(userX-20,userY);
+                    userPoly[1] = createVector(userX,userY-50);
+                    userPoly[2] = createVector(userX+20,userY);
+                    break;
+                case KEYS.A: 
+                    userPoly[0] = createVector(userX-50,userY);
+                    userPoly[1] = createVector(userX,userY-20);
+                    userPoly[2] = createVector(userX,userY+20);
+                    break;
+                case KEYS.S: 
+                    userPoly[0] = createVector(userX-20,userY);
+                    userPoly[1] = createVector(userX,userY+50);
+                    userPoly[2] = createVector(userX+20,userY);
+                    break;
+                case KEYS.D: 
+                    userPoly[0] = createVector(userX+50, userY);
+                    userPoly[1] = createVector(userX, userY-20);
+                    userPoly[2] = createVector(userX, userY+20);
+                    break;
+            }
+            collision = collideCirclePoly(enemy.x,enemy.y,enemy.size,userPoly);
+            if(collision) {
+                isAlive = false;
+                updateScoreOnServer();
+            }
         }
     });
     enemies = validEnemies;
@@ -208,16 +209,18 @@ function updateBullets() {
             validBullets.push(bullet);
         }
         enemies.forEach(function(enemy){
-            var collision = false; 
-            if(bullet.dir === KEYS.W || bullet.dir === KEYS.S) { //draw vertical line
-                collision = collideLineCircle(bullet.x,bullet.y,bullet.x,bullet.y+bulletSize,enemy.x,enemy.y,enemy.size);
-            } else if (bullet.dir === KEYS.A || bullet.dir === KEYS.D) { //draw horizontal line
-                collision = collideLineCircle(bullet.x,bullet.y,bullet.x+bulletSize,bullet.y,enemy.x,enemy.y,enemy.size);
-            } 
-            if(collision) {
-                enemy.isDead = true;
-                score++;
-                return;
+            if(!enemy.isDead) {
+                var collision = false; 
+                if(bullet.dir === KEYS.W || bullet.dir === KEYS.S) { //draw vertical line
+                    collision = collideLineCircle(bullet.x,bullet.y,bullet.x,bullet.y+bulletSize,enemy.x,enemy.y,enemy.size);
+                } else if (bullet.dir === KEYS.A || bullet.dir === KEYS.D) { //draw horizontal line
+                    collision = collideLineCircle(bullet.x,bullet.y,bullet.x+bulletSize,bullet.y,enemy.x,enemy.y,enemy.size);
+                } 
+                if(collision) {
+                    enemy.isDead = true;
+                    score++;
+                    return;
+                }
             }
         });
     });
@@ -249,7 +252,7 @@ function shootBullet() {
         canShoot = false;
         setTimeout(function(){
             canShoot = true;
-        }, 200);
+        }, 500);
     }
 }
 
